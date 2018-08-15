@@ -38,7 +38,7 @@ export default new Router({
       name: "Example",
       meta: {
         title: "Example",
-        icon: "example"
+        icon: "el-icon-menu"
       },
       children: [
         {
@@ -47,7 +47,7 @@ export default new Router({
           component: () => import("@/views/table/index"),
           meta: {
             title: "Table",
-            icon: "table"
+            icon: "el-icon-success"
           }
         },
         {
@@ -56,7 +56,7 @@ export default new Router({
           component: () => import("@/views/tree/index"),
           meta: {
             title: "Tree",
-            icon: "tree"
+            icon: "el-icon-success"
           }
         }
       ]
@@ -72,7 +72,7 @@ export default new Router({
           component: () => import("@/views/form/index"),
           meta: {
             title: "Form",
-            icon: "form"
+            icon: "el-icon-tickets"
           }
         }
       ]
@@ -85,7 +85,7 @@ export default new Router({
       name: "nested",
       meta: {
         title: "nested",
-        icon: "nested"
+        icon: "el-icon-goods"
       },
       children: [
         {

@@ -1,4 +1,4 @@
-// import store from "@/store";
+import store from "@/store";
 
 const { body } = document;
 const WIDTH = 1024;
@@ -8,8 +8,8 @@ export default {
   watch: {
     $route(route) {
       if (this.device === "mobile" && this.sidebar.opened) {
-        console.log(route);
-        // store.dispatch("CloseSideBar", { withoutAnimation: false })
+        console.log("route=", route);
+        store.dispatch("CloseSideBar", { withoutAnimation: false });
       }
     }
   },
@@ -19,8 +19,8 @@ export default {
   mounted() {
     const isMobile = this.isMobile();
     if (isMobile) {
-      // store.dispatch('ToggleDevice', 'mobile')
-      // store.dispatch('CloseSideBar', { withoutAnimation: true })
+      store.dispatch("ToggleDevice", "mobile");
+      store.dispatch("CloseSideBar", { withoutAnimation: true });
     }
   },
   methods: {
@@ -31,10 +31,10 @@ export default {
     resizeHandler() {
       if (!document.hidden) {
         const isMobile = this.isMobile();
-        // store.dispatch('ToggleDevice', isMobile ? 'mobile' : 'desktop')
+        store.dispatch("ToggleDevice", isMobile ? "mobile" : "desktop");
 
         if (isMobile) {
-          // store.dispatch('CloseSideBar', { withoutAnimation: true })
+          store.dispatch("CloseSideBar", { withoutAnimation: true });
         }
       }
     }
