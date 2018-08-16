@@ -14,11 +14,6 @@ export default new Router({
       hidden: true
     },
     {
-      path: "/404",
-      component: () => import("@/views/404.vue"),
-      hidden: true
-    },
-    {
       path: "/",
       component: Layout,
       redirect: "/dashboard",
@@ -153,7 +148,7 @@ export default new Router({
     },
     {
       path: "*",
-      redirect: "/404",
+      redirect: "/login",
       hidden: true
     }
   ]
