@@ -11,17 +11,19 @@ export function login(username, password) {
   });
 }
 
-export function getInfo(token) {
+export function getInfo() {
   return request({
-    url: "/user/info",
+    url: "/api/v1/auth/common/users/permissions",
     method: "get",
-    params: { token }
+    headers: {
+      permissionType: "front"
+    }
   });
 }
 
 export function logout() {
   return request({
-    url: "/user/logout",
+    url: "/api/v1/authsec/users/logout",
     method: "post"
   });
 }

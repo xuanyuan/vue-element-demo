@@ -20,5 +20,5 @@ export function setUser(user) {
 }
 
 export function getUser() {
-  return Cookies.get(UserKey);
+  return JSON.parse(Cookies.get(UserKey));
 }

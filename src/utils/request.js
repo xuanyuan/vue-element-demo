@@ -6,7 +6,7 @@ import { getUser } from "./auth";
 
 // 创建axios实例
 const service = axios.create({
-  baseURL: process.env.BASE_API, // api的base_url
+  // baseURL: process.env.BASE_URL, // api的base_url
   timeout: 5000 // 请求超时时间
 });
 
@@ -14,7 +14,7 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     if (store.getters.token && store.getters.user) {
-      config.headers["X-Token"] = getToken(); // 让每个请求携带自定义token 请根据实际情况自行修改
+      config.headers.token = getToken(); // 让每个请求携带自定义token 请根据实际情况自行修改
       config.headers.userId = getUser().id;
     }
     console.log("store.getters: ", store.getters);
@@ -34,7 +34,7 @@ service.interceptors.response.use(
     console.log("response:", response);
 
     /** code为非20000是抛错 可结合自己业务进行修改 */
-    const heeaders = response.heeaders;
+    const headers = response.headers;
     if (response.status !== 200) {
       Message({
         message: response.data.msg,
@@ -43,7 +43,7 @@ service.interceptors.response.use(
       });
 
       // 50008:非法的token; 50012:其他客户端登录了;  50014:Token 过期了;
-      if (heeaders.resultcode === "1000") {
+      if (headers.resultcode === "1000") {
         MessageBox.confirm(
           "你已被登出，可以取消继续留在该页面，或者重新登录",
           "确定登出",
