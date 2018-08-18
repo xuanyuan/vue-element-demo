@@ -20,5 +20,10 @@ export function setUser(user) {
 }
 
 export function getUser() {
-  return JSON.parse(Cookies.get(UserKey));
+  console.log("getUser:", Cookies.get(UserKey));
+  if (Cookies.get(UserKey)) {
+    return JSON.parse(Cookies.get(UserKey));
+  } else {
+    return Cookies.get(UserKey);
+  }
 }
