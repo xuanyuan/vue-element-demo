@@ -41,7 +41,7 @@ const user = {
       return new Promise((resolve, reject) => {
         login(username, userInfo.password)
           .then(response => {
-            console.log("Login response:", response);
+            // console.log("Login response:", response);
             const headers = response.headers;
             const user = response.data;
             setToken(headers.token);

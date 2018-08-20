@@ -15,11 +15,12 @@ router.beforeEach((to, from, next) => {
       NProgress.done(); // if current page is dashboard will not trigger	afterEach hook, so manually handle it
     } else {
       if (store.getters.roles.length === 0) {
+        /* eslint-disable no-unused-vars */
         store
           .dispatch("GetInfo")
           .then(res => {
             // 拉取用户信息
-            console.log("GetInfo:", res);
+            // console.log("GetInfo:", res);
             next();
           })
           .catch(err => {

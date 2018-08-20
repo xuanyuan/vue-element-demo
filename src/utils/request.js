@@ -17,13 +17,13 @@ service.interceptors.request.use(
       config.headers.token = getToken(); // 让每个请求携带自定义token 请根据实际情况自行修改
       config.headers.userId = getUser().id;
     }
-    console.log("store.getters: ", store.getters);
-    console.log("request config: ", config);
+    // console.log("store.getters: ", store.getters);
+    // console.log("request config: ", config);
     return config;
   },
   error => {
     // Do something with request error
-    console.log(error); // for debug
+    // console.log(error); // for debug
     Promise.reject(error);
   }
 );
@@ -31,7 +31,7 @@ service.interceptors.request.use(
 // respone拦截器
 service.interceptors.response.use(
   response => {
-    console.log("response:", response);
+    // console.log("response:", response);
 
     /** code为非20000是抛错 可结合自己业务进行修改 */
     const headers = response.headers;
@@ -64,7 +64,7 @@ service.interceptors.response.use(
     }
   },
   error => {
-    console.log("err" + error); // for debug
+    // console.log("err" + error); // for debug
     Message({
       message: error.message,
       type: "error",

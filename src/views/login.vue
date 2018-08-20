@@ -79,7 +79,7 @@ export default {
           this.$store
             .dispatch("Login", this.loginForm)
             .then(() => {
-              console.log("this:", this);
+              // console.log("this:", this);
               this.loading = false;
               this.$router.push({ path: "/" });
             })
@@ -88,7 +88,7 @@ export default {
             });
           // this.$router.push({ path: "/" });
         } else {
-          console.log("error submit!!");
+          // console.log("error submit!!");
           return false;
         }
       });

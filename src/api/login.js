@@ -2,7 +2,7 @@ import request from "@/utils/request";
 
 export function login(username, password) {
   return request({
-    url: "/api/v1/noauth/users/login",
+    url: "/v1/noauth/users/login",
     method: "post",
     data: {
       username,
@@ -13,7 +13,7 @@ export function login(username, password) {
 
 export function getInfo() {
   return request({
-    url: "/api/v1/auth/common/users/permissions",
+    url: "/v1/auth/common/users/permissions",
     method: "get",
     headers: {
       permissionType: "front"
@@ -23,7 +23,7 @@ export function getInfo() {
 
 export function logout() {
   return request({
-    url: "/api/v1/authsec/users/logout",
+    url: "/v1/authsec/users/logout",
     method: "post"
   });
 }

@@ -6,9 +6,10 @@ const RATIO = 3;
 
 export default {
   watch: {
+    /* eslint-disable no-unused-vars */
     $route(route) {
       if (this.device === "mobile" && this.sidebar.opened) {
-        console.log("route=", route);
+        // console.log("route=", route);
         store.dispatch("CloseSideBar", { withoutAnimation: false });
       }
     }
